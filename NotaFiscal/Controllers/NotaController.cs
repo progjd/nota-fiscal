@@ -1,8 +1,10 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using NotaFiscal.HttpClients;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using NotaFiscal.Models;
 
 namespace NotaFiscal.Controllers
 {
@@ -17,6 +19,17 @@ namespace NotaFiscal.Controllers
         public IActionResult Index()
         {
             return View();
+        }
+         //criar metodo atualizar no httpclient put nota async
+          public async Task<IActionResult> UpdateNota(Notas model)
+        {
+
+            if (ModelState.IsValid)
+            {
+              await _notaapi.PutNotaAsync(model);
+                return NotFound();
+            }
+            return View(model);
         }
 
       

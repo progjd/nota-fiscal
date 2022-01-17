@@ -4,12 +4,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
+using NotaFiscal.Models;
 
-
-
+namespace NotaFiscal.HttpClients
+{
     public class NotaApiClient
     {
-        private HttpClient _httpClient;
+        private readonly HttpClient _httpClient;
         private IHttpContextAccessor _accessor;
 
         public NotaApiClient(HttpClient httpClient, IHttpContextAccessor accessor)
@@ -24,7 +25,7 @@ using System.Threading.Tasks;
     }
 
     //formulario inclusao de nota
-    private HttpContent CreateMultipartFormDataContent(NotaFiscal.Models.Notas model)
+    private HttpContent CreateMultipartFormDataContent(Notas model)
     {
         var content = new MultipartFormDataContent();
 
@@ -46,23 +47,18 @@ using System.Threading.Tasks;
         //}
 
         //Atualizar nota
-        if (model.Owner !=null )
+        if (model.id !=null )
         {
-            content.Add(new StringContent(model.Owner.ToString()), EnvolveComAspasDuplas("Owner"));
+            content.Add(new StringContent(model.id.ToString()), EnvolveComAspasDuplas("id"));
         }
 
-        //upload de arquivo capa
-        //if (model.Capa != null)
-        //{
-        //    var imagemContent = new ByteArrayContent(model.Capa.ConvertToBytes());
-        //    imagemContent.Headers.Add("content-type", "image/png");
-        //    content.Add(imagemContent,
-        //        EnvolveComAspasDuplas("capa"),
-        //        EnvolveComAspasDuplas("capa.png")
-        //       );
-
-        //}
+       
         return content;
     }
-}
 
+    public Task PutNotaAsync(Notas model)
+    {
+      throw new NotImplementedException();
+    }
+  }
+}

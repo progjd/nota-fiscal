@@ -6170,30 +6170,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\João\\.nuget\\packages\\": {},
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
+    "/home/jd/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\João\\source\\repos\\NotaFiscal\\NotaFiscal\\NotaFiscal.csproj",
+      "projectUniqueName": "/opt/lampp/htdocs/nota-fiscal/NotaFiscal/NotaFiscal.csproj",
       "projectName": "NotaFiscal",
-      "projectPath": "C:\\Users\\João\\source\\repos\\NotaFiscal\\NotaFiscal\\NotaFiscal.csproj",
-      "packagesPath": "C:\\Users\\João\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\João\\source\\repos\\NotaFiscal\\NotaFiscal\\obj\\",
+      "projectPath": "/opt/lampp/htdocs/nota-fiscal/NotaFiscal/NotaFiscal.csproj",
+      "packagesPath": "/home/jd/.nuget/packages/",
+      "outputPath": "/opt/lampp/htdocs/nota-fiscal/NotaFiscal/obj/",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-      ],
       "configFilePaths": [
-        "C:\\Users\\João\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "/home/jd/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net5.0"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -6235,7 +6229,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.404\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/5.0.403/RuntimeIdentifierGraph.json"
       }
     }
   }
