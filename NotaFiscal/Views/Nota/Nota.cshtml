@@ -1,7 +1,89 @@
-﻿
+﻿@model NotasUpload
 @{
     ViewData["Title"] = "Nota";
 }
 
 <h1>Nota</h1>
 
+<main>
+
+    <form class="row" role="form" enctype="multipart/form-data" asp-action="UpdateNota" method="post">
+
+        <input type="hidden" asp-for="Id" />
+
+       
+
+        <div class="col-5">
+
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="form-group">
+                <label asp-for="Owner" class="control-label"></label>
+                <input asp-for="Owner" class="form-control" />
+                <span asp-validation-for="Owner" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="NumeroNota" class="control-label"></label>
+                <input asp-for="NumeroNota" class="form-control" />
+                <span asp-validation-for="NumeroNota" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Serie" class="control-label"></label>
+                <textarea asp-for="Serie" class="form-control" rows="5"></textarea>
+                <span asp-validation-for="Serie" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IncideBC" class="control-label"></label>
+                <input asp-for="IncideBC" class="form-control" />
+                <span asp-validation-for="IncideBC" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DataEmissao" class="control-label"></label>
+                <input asp-for="DataEmissao" class="form-control" />
+                <span asp-validation-for="DataEmissao" class="text-danger"></span>
+            </div>
+        <div class="form-group">
+                <label asp-for="DataPrestacao" class="control-label"></label>
+                <input asp-for="DataPrestacao" class="form-control" />
+                <span asp-validation-for="DataPrestacao" class="text-danger"></span>
+            </div>
+        <div class="form-group">
+                <label asp-for="DataVencimento" class="control-label"></label>
+                <input asp-for="DataVencimento" class="form-control" />
+                <span asp-validation-for="DataVencimento" class="text-danger"></span>
+            </div>
+        <div class="form-group">
+                <label asp-for="Cfop" class="control-label"></label>
+                <input asp-for="Cfop" class="form-control" />
+                <span asp-validation-for="Cfop" class="text-danger"></span>
+            </div>
+        
+        <div class="form-group">
+            <label asp-for="Modelo" class="control-label"></label>
+            <input asp-for="Modelo" class="form-control" />
+            <span asp-validation-for="Modelo" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="TipoUtilizacao" class="control-label"></label>
+            <input asp-for="TipoUtilizacao" class="form-control" />
+            <span asp-validation-for="TipoUtilizacao" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Observacao" class="control-label"></label>
+            <input asp-for="Observacao" class="form-control" />
+            <span asp-validation-for="Observacao" class="text-danger"></span>
+       
+            </div>
+       
+
+        <footer class="form-group">
+            <button class="btn btn-outline-success">GRAVAR</button>
+            <button id="btnExcluir" class="btn btn-outline-danger">EXCLUIR</button>
+        </footer>
+        </div>
+
+    </form>
+
+</main>

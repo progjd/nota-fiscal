@@ -18,6 +18,10 @@ namespace NotaFiscal.Controllers
             _logger = logger;
         }
 
+        public IActionResult Nota()
+        {
+            return View();
+        }
         public IActionResult Index()
         {
             return View();
