@@ -28,6 +28,9 @@ namespace NotaFiscal
                 client.BaseAddress = new Uri("https://NFeModelo2122Diginota/");
             });
             services.AddControllersWithViews();
+            services.AddHttpClient<NotaApiClient>(client => {
+              client.BaseAddress = new Uri("localhost:6000/api/");
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
