@@ -1,25 +1,30 @@
 {
   "format": 1,
   "restore": {
-    "/opt/lampp/htdocs/nota-fiscal/NotaFiscal/NotaFiscal.csproj": {}
+    "C:\\Users\\João\\source\\repos\\NotaFiscal\\NotaFiscal\\NotaFiscal.csproj": {}
   },
   "projects": {
-    "/opt/lampp/htdocs/nota-fiscal/NotaFiscal/NotaFiscal.csproj": {
+    "C:\\Users\\João\\source\\repos\\NotaFiscal\\NotaFiscal\\NotaFiscal.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/opt/lampp/htdocs/nota-fiscal/NotaFiscal/NotaFiscal.csproj",
+        "projectUniqueName": "C:\\Users\\João\\source\\repos\\NotaFiscal\\NotaFiscal\\NotaFiscal.csproj",
         "projectName": "NotaFiscal",
-        "projectPath": "/opt/lampp/htdocs/nota-fiscal/NotaFiscal/NotaFiscal.csproj",
-        "packagesPath": "/home/jd/.nuget/packages/",
-        "outputPath": "/opt/lampp/htdocs/nota-fiscal/NotaFiscal/obj/",
+        "projectPath": "C:\\Users\\João\\source\\repos\\NotaFiscal\\NotaFiscal\\NotaFiscal.csproj",
+        "packagesPath": "C:\\Users\\João\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\João\\source\\repos\\NotaFiscal\\NotaFiscal\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
-          "/home/jd/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\João\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net5.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -69,7 +74,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/5.0.403/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.404\\RuntimeIdentifierGraph.json"
         }
       }
     }

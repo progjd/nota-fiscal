@@ -12,17 +12,20 @@ namespace NotaFiscal.Models
             return new Notas
             {
                 Id = nota.Id,
-                Owner = nota.Owner,
-                NumeroNota = nota.NumeroNota,
-                Serie = nota.Serie,
-                IncideBC = nota.IncideBC,
-                DataPrestacao = nota.DataPrestacao,
-                DataEmissao = nota.DataEmissao,
-                DataVencimento = nota.DataVencimento,
-                Cfop = nota.Cfop,
-                Modelo = nota.Modelo,
-                TipoUtilizacao = nota.TipoUtilizacao,
-                Observacao = nota.Observacao,
+                owner = nota.owner,
+                numeroNF = nota.numeroNF,
+                serie = nota.serie,
+                incideBC = nota.incideBC,
+                dataPrestacao = nota.dataPrestacao,
+                dataEmissao = nota.dataEmissao,
+                diaVencimento = nota.diaVencimento,
+                cfop = nota.cfop,
+                modelo = nota.modelo,
+                tipoUtilizacao = nota.tipoUtilizacao,
+                obs = nota.obs,
+                geraPDF = nota.geraPDF,
+                linkPDF = nota.linkPDF,
+                cancelado = nota.cancelado,
                 
             };
         }

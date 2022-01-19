@@ -29,7 +29,7 @@ namespace NotaFiscal.Controllers
         {
             if (ModelState.IsValid)
             {
-                await _notaapi.PutNotaAsync(model);
+                await _notaapi.PutNotaSharp(model);
                 return RedirectToAction("Index", "Home");
             }
             return View(model);
