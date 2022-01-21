@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using NotaFiscal.HttpClients;
 using NotaFiscal.Models;
 using System;
 using System.Collections.Generic;
@@ -12,16 +13,15 @@ namespace NotaFiscal.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+     
 
         public HomeController(ILogger<HomeController> logger)
         {
             _logger = logger;
+        
         }
 
-        public IActionResult Nota()
-        {
-            return View();
-        }
+     
         public IActionResult Index()
         {
             return View();
@@ -31,6 +31,7 @@ namespace NotaFiscal.Controllers
         {
             return View();
         }
+     
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()

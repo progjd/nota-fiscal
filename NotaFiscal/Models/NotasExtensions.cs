@@ -23,6 +23,7 @@ namespace NotaFiscal.Models
                 modelo = nota.modelo,
                 tipoUtilizacao = nota.tipoUtilizacao,
                 obs = nota.obs,
+                nfInicial = nota.nfInicial,
                 geraPDF = nota.geraPDF,
                 linkPDF = nota.linkPDF,
                 cancelado = nota.cancelado,

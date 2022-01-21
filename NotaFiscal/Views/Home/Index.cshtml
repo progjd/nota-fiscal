@@ -1,17 +1,21 @@
-﻿@* @model NotaFiscal *@
+﻿@model Notas
 @{
     ViewData["Title"] = "Home Page";
 }
 
 
-@* @{
+ @{
     Layout = "~/Views/Shared/_Layout.cshtml";
-} *@
+} 
 
 
 <div class="text-center">
     <h1 class="display-4">NotaUpdate</h1>
-    <p>Hello</p>
+    <div class="form-group">
+        <label asp-for="owner" class="control-label"></label>
+        <input asp-for="owner" class="form-control" />
+        <span asp-validation-for="owner" class="text-danger"></span>
+    </div>
     
 </div>
 

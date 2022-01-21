@@ -1,9 +1,11 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Routing;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using NotaFiscal.HttpClients;
+using RestSharp;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,14 +25,13 @@ namespace NotaFiscal
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddHttpContextAccessor();
-            services.AddHttpClient<NotaApiClient>(client => {
-                client.BaseAddress = new Uri("https://NFeModelo2122Diginota/");
-            });
+
+
+            services.AddSingleton<NotaApiClient>(
+
+              r => new NotaApiClient(new RestClient("http://servluc01.ddns.com.br/NFeModelo2122Diginota/v1/Invoice/"))
+          );
             services.AddControllersWithViews();
-            services.AddHttpClient<NotaApiClient>(client => {
-              client.BaseAddress = new Uri("localhost:6000/api/");
-            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -45,6 +46,7 @@ namespace NotaFiscal
                 app.UseExceptionHandler("/Home/Error");
             }
             app.UseStaticFiles();
+            
 
             app.UseRouting();
 
@@ -55,7 +57,8 @@ namespace NotaFiscal
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
-            });
+              
+              });
         }
     }
 }
