@@ -3,19 +3,44 @@
     ViewData["Title"] = "Home Page";
 }
 
-
  @{
     Layout = "~/Views/Shared/_Layout.cshtml";
 } 
 
+<main>
 
-<div class="text-center">
-    <h1 class="display-4">NotaUpdate</h1>
-    <div class="form-group">
-        <label asp-for="owner" class="control-label"></label>
-        <input asp-for="owner" class="form-control" />
-        <span asp-validation-for="owner" class="text-danger"></span>
-    </div>
-    
-</div>
+    <form asp-action="GetNota" method="post">
 
+        <div class="row">
+            <div class="col-2"></div>
+            <div class="col-8">
+                <h2>BUSCAR NOTA_GUID</h2>
+            </div>
+            <div class="col-2"></div>
+        </div>
+
+        <div class="row">
+            <div asp-validation-summary="All" class="text-danger"></div>
+        </div>
+
+        <div class="row">
+            <div class="col-2"></div>
+            <div class="form-group col-4">
+                <label asp-for="owner"></label>
+                <input asp-for="owner" class="form-control" />
+                <span asp-validation-for="owner" class="text-danger"></span>
+            </div>
+
+            <div class="col-2"></div>
+        </div>
+
+        <footer class="row">
+            <div class="col-2"></div>
+            <div class="col-8">
+                <button class="btn btn-primary">BUSCAR</button>
+            </div>
+        </footer>
+
+    </form>
+
+</main>

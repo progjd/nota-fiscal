@@ -27,7 +27,7 @@ namespace NotaFiscal
         {
 
 
-            services.AddSingleton<NotaApiClient>(
+            services.AddSingleton(
 
               r => new NotaApiClient(new RestClient("http://servluc01.ddns.com.br/NFeModelo2122Diginota/v1/Invoice/"))
           );

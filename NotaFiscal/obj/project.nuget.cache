@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "tvnawkZ7ko4IXn61ykp+7Pm3ACLhpdfMmKpnGVQerOlo/StXEUkSGAinlcYhNohap1nJ3p6KqtJAOghBHgdPRA==",
+  "dgSpecHash": "ck7PQtONz7d/uQqqTAA89pYJ/XtwztHMbiRD9RWINZLS3dE1X730a3640UQ1X+Fc3c7HZ3RVHJGs2luykDscVA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\João\\source\\repos\\NotaFiscal\\NotaFiscal\\NotaFiscal.csproj",
+  "projectFilePath": "C:\\Users\\João\\source\\repos\\nota-fiscal\\NotaFiscal\\NotaFiscal.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\João\\.nuget\\packages\\humanizer.core\\2.2.0\\humanizer.core.2.2.0.nupkg.sha512",
     "C:\\Users\\João\\.nuget\\packages\\microsoft.aspnetcore.html.abstractions\\2.2.0\\microsoft.aspnetcore.html.abstractions.2.2.0.nupkg.sha512",

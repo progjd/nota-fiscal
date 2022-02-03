@@ -22,18 +22,30 @@ namespace NotaFiscal.HttpClients
             _client = client;
         }
 
-        public Task<Notas> GetNotas(string notaSid)
+        public async Task<Notas> GetNotas(string guid)
         {
-            var request = new RestRequest("http://servluc01.ddns.com.br/NFeModelo2122Diginota/v1/Invoice/Notas/{notaSid}");
+            var options = new RestClientOptions()
+            {
+                ThrowOnAnyError = true,
+                Timeout = 1000
+            };
+            var client = new RestClient(options);
+            try
+            {
+  
+                var request = new RestRequest(guid, Method.Post);
+                request.AddHeader("Authorization", "");
+                request.AddHeader(KnownHeaders.ContentType, "application/json");
+                var response = await client.ExecuteGetAsync<Notas>(request);
+                return response.Data;
+               
 
-            _client.Authenticator = new OAuth2AuthorizationRequestHeaderAuthenticator(
-            "Bearer", "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6Ik9taWUgIHRlc3RlIChUUklBTCkiLCJQSUQiOiIzY2ZlZTRkNy03NzM3LTRhNzQtYTRmNy05NGUwNjBhOTRmNjciLCJSb2xlIjoiQ3VzdG9tZXIiLCJuYmYiOjE2NDIwOTYxODMsImV4cCI6MTY3MzYzMjE4MywiaWF0IjoxNjQyMDk2MTgzLCJpc3MiOiIxTm92by5jb20uYnIiLCJhdWQiOiJzdXJmLm1heGRhdGFjZW50ZXIuY29tLmJyIn0.T-uy3Sumtue2x_LfL6RJ3FxxI9uXLpfrZXLpEmu5pq8");
+            }
+            catch (Exception ex)
+            {
 
-            request.RootElement = "Notas";
-            request.AddParameter(notaSid, Method.Get);
-          
-            var response = _client.GetAsync<Notas>(request);
-            return response;
+                throw new Exception("Error parameter null or Not Unauthorization", ex);
+            }
             
         }
 
