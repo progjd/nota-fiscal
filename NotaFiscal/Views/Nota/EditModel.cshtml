@@ -1,0 +1,197 @@
+﻿@model Data; 
+<h2>Edit NotaFiscal</h2>
+
+<main>
+   
+    <form class="row" role="form" enctype="application/x-www-form-urlencoded" asp-action="Index" method="post">
+
+        <input type="hidden" asp-for="id" />
+
+        <div class="col-6">
+
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="form-group">
+                <label asp-for="owner" class="control-label"></label>
+                <input asp-for="owner" class="form-control" />
+                <span asp-validation-for="owner" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="numeroNF" class="control-label"></label>
+                <input asp-for="numeroNF" class="form-control" />
+                <span asp-validation-for="numeroNF" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="serie" class="control-label"></label>
+                <input asp-for="serie" class="form-control" />
+                <span asp-validation-for="serie" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="incideBC" class="control-label"></label>
+                <input asp-for="incideBC" class="form-control" />
+                <span asp-validation-for="incideBC" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="dataPrestacao" class="control-label"></label>
+                <input asp-for="dataPrestacao" class="form-control" />
+                <span asp-validation-for="dataPrestacao" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="dataEmissao" class="control-label"></label>
+                <input asp-for="dataEmissao" class="form-control" />
+                <span asp-validation-for="dataEmissao" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="diaVencimento" class="control-label"></label>
+                <input asp-for="diaVencimento" class="form-control" />
+                <span asp-validation-for="diaVencimento" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="cfop" class="control-label"></label>
+                <input asp-for="cfop" class="form-control" />
+                <span asp-validation-for="cfop" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="modelo" class="control-label"></label>
+                <input asp-for="modelo" class="form-control" />
+                <span asp-validation-for="modelo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="tipoUtilizacao" class="control-label"></label>
+                <input asp-for="tipoUtilizacao" class="form-control" />
+                <span asp-validation-for="tipoUtilizacao" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="obs" class="control-label"></label>
+                <input asp-for="obs" class="form-control" />
+                <span asp-validation-for="obs" class="text-danger"></span>
+            </div>
+
+            <h3>Destinatario</h3>
+
+            <div class="form-group">
+                <label asp-for="destinatario.razaoSocial" class="control-label"></label>
+                <input asp-for="destinatario.razaoSocial" class="form-control" />
+                <span asp-validation-for="destinatario.razaoSocial" class="text-danger"></span>
+            </div>
+            <div class="row">
+                <div class="form-group">
+                    <label asp-for="destinatario.logradouro" class="control-label"></label>
+                    <input asp-for="destinatario.logradouro" class="form-control" />
+                    <span asp-validation-for="destinatario.logradouro" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="destinatario.numero" class="control-label"></label>
+                    <input asp-for="destinatario.numero" class="form-control" />
+                    <span asp-validation-for="destinatario.numero" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group">
+                    <label asp-for="destinatario.complemento" class="control-label"></label>
+                    <input asp-for="destinatario.complemento" class="form-control" />
+                    <span asp-validation-for="destinatario.complemento" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="destinatario.bairro" class="control-label"></label>
+                    <input asp-for="destinatario.bairro" class="form-control" />
+                    <span asp-validation-for="destinatario.bairro" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group">
+                    <label asp-for="destinatario.municipio" class="control-label"></label>
+                    <input asp-for="destinatario.municipio" class="form-control" />
+                    <span asp-validation-for="destinatario.municipio" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="destinatario.uf" class="control-label"></label>
+                    <input asp-for="destinatario.uf" class="form-control" />
+                    <span asp-validation-for="destinatario.uf" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group">
+                    <label asp-for="destinatario.cep" class="control-label"></label>
+                    <input asp-for="destinatario.cep" class="form-control" />
+                    <span asp-validation-for="destinatario.cep" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="destinatario.cnpjcpf" class="control-label"></label>
+                    <input asp-for="destinatario.cnpjcpf" class="form-control" />
+                    <span asp-validation-for="destinatario.cnpjcpf" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="form-group">
+                    <label asp-for="destinatario.ierg" class="control-label"></label>
+                    <input asp-for="destinatario.ierg" class="form-control" />
+                    <span asp-validation-for="destinatario.ierg" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="destinatario.telefone" class="control-label"></label>
+                    <input asp-for="destinatario.telefone" class="form-control" />
+                    <span asp-validation-for="destinatario.telefone" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group">
+                    <label asp-for="destinatario.email" class="control-label"></label>
+                    <input asp-for="destinatario.email" class="form-control" />
+                    <span asp-validation-for="destinatario.email" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="destinatario.tipoCliente" class="control-label"></label>
+                    <input asp-for="destinatario.tipoCliente" class="form-control" />
+                    <span asp-validation-for="destinatario.tipoCliente" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group">
+                    <label asp-for="destinatario.codigoMunicipio" class="control-label"></label>
+                    <input asp-for="destinatario.codigoMunicipio" class="form-control" />
+                    <span asp-validation-for="destinatario.codigoMunicipio" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="destinatario.codigoIdentificacao" class="control-label"></label>
+                    <input asp-for="destinatario.codigoIdentificacao" class="form-control" />
+                    <span asp-validation-for="destinatario.codigoIdentificacao" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="form-group">
+                    <label asp-for="nfInicial" class="control-label"></label>
+                    <input asp-for="nfInicial" class="form-control" />
+                    <span asp-validation-for="nfInicial" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="cancelado" class="control-label"></label>
+                    <input asp-for="cancelado" class="form-control" />
+                    <span asp-validation-for="cancelado" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="geraPDF" class="control-label"></label>
+                <input asp-for="geraPDF" class="form-control" />
+                <span asp-validation-for="geraPDF" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="linkPDF" class="control-label"></label>
+                <input asp-for="linkPDF" class="form-control" />
+                <span asp-validation-for="linkPDF" class="text-danger"></span>
+            </div>
+
+            <footer class="form-group">
+                <button class="btn btn-outline-success">GRAVAR</button>
+                <button id="btnExcluir" class="btn btn-outline-danger">EXCLUIR</button>
+            </footer>
+        </div>
+
+    </form>
+
+</main>

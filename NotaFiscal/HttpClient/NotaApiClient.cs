@@ -1,61 +1,116 @@
-﻿using Microsoft.AspNetCore.Http;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net.Http;
+﻿using System;
 using System.Threading.Tasks;
 using NotaFiscal.Models;
 using RestSharp;
-using RestSharp.Authenticators;
-using RestSharp.Authenticators.OAuth2;
+using System.Net;
+using Newtonsoft.Json;
+
+
 
 namespace NotaFiscal.HttpClients
 {
 
     public class NotaApiClient
     {
-     
         readonly RestClient _client;
-
         public NotaApiClient(RestClient client)
         {
             _client = client;
         }
 
-        public async Task<Notas> GetNotas(string guid)
+
+        public async Task<root> GetNotas(string guid)
         {
-            var options = new RestClientOptions()
+            var options = new RestClientOptions("http://")
             {
                 ThrowOnAnyError = true,
                 Timeout = 1000
             };
             var client = new RestClient(options);
+    
             try
             {
+                var request = new RestRequest(guid, Method.Get);
+                request.AddHeader("Authorization", "token");
+                request.AddHeader(KnownHeaders.Accept, "Content");
+          
+                var response = await client.ExecuteGetAsync<Data>(request);
   
-                var request = new RestRequest(guid, Method.Post);
-                request.AddHeader("Authorization", "");
-                request.AddHeader(KnownHeaders.ContentType, "application/json");
-                var response = await client.ExecuteGetAsync<Notas>(request);
-                return response.Data;
-               
+                if (response.StatusCode == HttpStatusCode.OK)
+                {
+                  root jsonNotas = JsonConvert.DeserializeObject<root>(response.Content);
+                   return jsonNotas;
+                }
+                else
+                {
+                   dynamic jsonNotas = "";
+                    return new root
+                    {
+                    data = JsonConvert.SerializeObject(jsonNotas),
+                    message = string.Format("{0} - {1}", ((int)response.StatusCode).ToString(), response.StatusDescription),
+                    success = false
+                   };
+                }
+              }
+            catch (Exception ex)
+            {
+                throw new Exception("Error parameter null or Not Unauthorization", ex);
+            }
+          }
 
+        public async Task<root> postNotas(string owner)
+        {
+            var options = new RestClientOptions($"http://{owner}")
+            {
+                ThrowOnAnyError = true,
+                Timeout = 1000
+            };
+            var client = new RestClient(options);
+
+            try
+            {
+                var request = new RestRequest();
+                request.AddHeader("Authorization", "token");
+                request.AddHeader("Content-Type", "application/x-www-form-urlencoded");
+                request.AddHeader("Content-Type", "application/json");
+               // request.AddHeader("Accept", "application/json");
+
+                request.AddHeader(KnownHeaders.Accept, "Content");
+                request.AddParameter(owner, ParameterType.GetOrPost);
+                
+                var response = await client.ExecuteAsync<Data>(request);
+                if (response.StatusCode == HttpStatusCode.OK)
+                {
+                    root jsonNotas = JsonConvert.DeserializeObject<root>(response.Content);
+                    return jsonNotas;
+                }
+                else
+                {
+                    dynamic jsonNotas = "";
+                    return new root
+                    {
+                        data = JsonConvert.SerializeObject(jsonNotas),
+                        success = false
+                    };
+                }
+               
+              
             }
             catch (Exception ex)
             {
-
                 throw new Exception("Error parameter null or Not Unauthorization", ex);
             }
-            
         }
 
-        public Task<Notas> PutNotaSharp(Notas options)
-        {
-            var request = new RestRequest("Notas")
+        public async Task<Data> PutNotaSharp(Data options)
+            {
+
+            var request = new RestRequest("aaa29381-fb16-4700-8f75-af6fe0cdeb85", Method.Put)
             {
                 RootElement = "options"
             }
-                .AddHeader("Content-Type", "multipart/form-data;boundary=[]")
+                .AddHeader(KnownHeaders.Authorization, "token")
+                .AddHeader("Content-Type", "application/x-www-form-urlencoded")
                 .AddParameter("Owner", options.owner)
                 .AddParameter("numeroNota", options.numeroNF)
                 .AddParameter("Serie", options.serie)
@@ -66,10 +121,6 @@ namespace NotaFiscal.HttpClients
                 .AddParameter("cfop", options.cfop)
                 .AddParameter("modelo", options.modelo)
                 .AddParameter("tipoUtilizacao", options.tipoUtilizacao)
-                .AddParameter("geraPDF", options.geraPDF)
-                .AddParameter("linkPDF", options.linkPDF)
-                .AddParameter("nfInicial", options.nfInicial)
-                .AddParameter("cancelado", options.cancelado)
                 .AddParameter("destinatario", options.destinatario.razaoSocial)
                 .AddParameter("destinatario", options.destinatario.logradouro)
                 .AddParameter("destinatario", options.destinatario.numero)
@@ -84,25 +135,19 @@ namespace NotaFiscal.HttpClients
                 .AddParameter("destinatario", options.destinatario.telefone)
                 .AddParameter("destinatario", options.destinatario.tipoCliente)
                 .AddParameter("destinatario", options.destinatario.ierg)
-                .AddParameter("Responsavel", options.responsavel.nomeFantasia)
-                .AddParameter("Responsavel", options.responsavel.razaoSocial)
-                .AddParameter("Responsavel", options.responsavel.bairro)
-                .AddParameter("Responsavel", options.responsavel.cep)
-                .AddParameter("Responsavel", options.responsavel.cnpjcpf)
-                .AddParameter("Responsavel", options.responsavel.codigoMunicipio)
-                .AddParameter("Responsavel", options.responsavel.complemento)
-                .AddParameter("Responsavel", options.responsavel.email)
-                .AddParameter("Responsavel", options.responsavel.ie)
-                .AddParameter("Responsavel", options.responsavel.logradouro)
-                .AddParameter("Responsavel", options.responsavel.numero)
-                .AddParameter("Responsavel", options.responsavel.telefone)
-                .AddParameter("Responsavel", options.responsavel.uf);
-            if (options.Id > 0)
+                .AddParameter("nfInicial", options.nfInicial)
+                .AddParameter("cancelado", options.cancelado)
+                .AddParameter("geraPDF", options.geraPDF)
+                .AddParameter("linkPDF", options.linkPDF);
+            if (options.owner != null)
             {
-                request.AddParameter("id", options.Id);
+                request.AddParameter("id", options.owner);
             }
-            return _client.PutAsync<Notas>(request);
+            var response = await _client.ExecutePutAsync<root>(request);
+            return response.Data.data;
         }
+       
+
     }
 }
 

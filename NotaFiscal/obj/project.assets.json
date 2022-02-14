@@ -6281,11 +6281,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\João\\Source\\Repos\\nota-fiscal\\NotaFiscal\\NotaFiscal.csproj",
+      "projectUniqueName": "C:\\Users\\João\\source\\repos\\nota-fiscal\\NotaFiscal\\NotaFiscal.csproj",
       "projectName": "NotaFiscal",
-      "projectPath": "C:\\Users\\João\\Source\\Repos\\nota-fiscal\\NotaFiscal\\NotaFiscal.csproj",
+      "projectPath": "C:\\Users\\João\\source\\repos\\nota-fiscal\\NotaFiscal\\NotaFiscal.csproj",
       "packagesPath": "C:\\Users\\João\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\João\\Source\\Repos\\nota-fiscal\\NotaFiscal\\obj\\",
+      "outputPath": "C:\\Users\\João\\source\\repos\\nota-fiscal\\NotaFiscal\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -6348,7 +6348,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.404\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.405\\RuntimeIdentifierGraph.json"
       }
     }
   }
