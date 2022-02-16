@@ -17,29 +17,41 @@ namespace NotaFiscal.Controllers
             _notaapi = notaapi;
         }
 
-       [HttpGet]
+        [HttpGet]
         public async Task<IActionResult> Detalhes(string id)
         {
             var model = await _notaapi.GetNotas(id);
-           
+
             if (model == null)
             {
                 return NotFound();
             }
-           
+
             return View(model.data);
         }
 
-     
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Atualiza(Data model)
+        public async Task<IActionResult> Index(string owner)
+        {
+            var model = await _notaapi.postNotas(owner);
+            if (model != null)
+            {
+                return View(model.data);
+            }
+                     
+            return NotFound();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Detalhes(Data model)
         {
             ViewData["message"] = "atualiza aaqu";
             if (ModelState.IsValid)
             {
                 await _notaapi.PutNotaSharp(model);
-                return RedirectToAction("Detalhes", "Nota");
+                return RedirectToAction("Index", "Nota");
             }
             return View(model);
         }

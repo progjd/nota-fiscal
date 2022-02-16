@@ -18,49 +18,49 @@ namespace NotaFiscal.HttpClients
             _client = client;
         }
 
-
+        string token = "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6Ik9taWUgIHRlc3RlIChUUklBTCkiLCJQSUQiOiIzY2ZlZTRkNy03NzM3LTRhNzQtYTRmNy05NGUwNjBhOTRmNjciLCJSb2xlIjoiQ3VzdG9tZXIiLCJuYmYiOjE2NDIwOTYxODMsImV4cCI6MTY3MzYzMjE4MywiaWF0IjoxNjQyMDk2MTgzLCJpc3MiOiIxTm92by5jb20uYnIiLCJhdWQiOiJzdXJmLm1heGRhdGFjZW50ZXIuY29tLmJyIn0.T-uy3Sumtue2x_LfL6RJ3FxxI9uXLpfrZXLpEmu5pq8";
         public async Task<root> GetNotas(string guid)
         {
-            var options = new RestClientOptions("http://")
+            var options = new RestClientOptions("http://servluc01.ddns.com.br/NFeModelo2122Diginota/v1/Invoice/")
             {
                 ThrowOnAnyError = true,
                 Timeout = 1000
             };
             var client = new RestClient(options);
-    
+
             try
             {
                 var request = new RestRequest(guid, Method.Get);
-                request.AddHeader("Authorization", "token");
+                request.AddHeader("Authorization", token);
                 request.AddHeader(KnownHeaders.Accept, "Content");
-          
+
                 var response = await client.ExecuteGetAsync<Data>(request);
-  
+
                 if (response.StatusCode == HttpStatusCode.OK)
                 {
-                  root jsonNotas = JsonConvert.DeserializeObject<root>(response.Content);
-                   return jsonNotas;
+                    root jsonNotas = JsonConvert.DeserializeObject<root>(response.Content);
+                    return jsonNotas;
                 }
                 else
                 {
-                   dynamic jsonNotas = "";
+                    dynamic jsonNotas = "";
                     return new root
                     {
-                    data = JsonConvert.SerializeObject(jsonNotas),
-                    message = string.Format("{0} - {1}", ((int)response.StatusCode).ToString(), response.StatusDescription),
-                    success = false
-                   };
+                        data = JsonConvert.SerializeObject(jsonNotas),
+                        message = string.Format("{0} - {1}", ((int)response.StatusCode).ToString(), response.StatusDescription),
+                        success = false
+                    };
                 }
-              }
+            }
             catch (Exception ex)
             {
                 throw new Exception("Error parameter null or Not Unauthorization", ex);
             }
-          }
+        }
 
         public async Task<root> postNotas(string owner)
         {
-            var options = new RestClientOptions($"http://{owner}")
+            var options = new RestClientOptions($"http://servluc01.ddns.com.br/NFeModelo2122Diginota/v1/Invoice/{owner}")
             {
                 ThrowOnAnyError = true,
                 Timeout = 1000
@@ -70,11 +70,9 @@ namespace NotaFiscal.HttpClients
             try
             {
                 var request = new RestRequest();
-                request.AddHeader("Authorization", "token");
+                request.AddHeader("Authorization", token);
                 request.AddHeader("Content-Type", "application/x-www-form-urlencoded");
                 request.AddHeader("Content-Type", "application/json");
-               // request.AddHeader("Accept", "application/json");
-
                 request.AddHeader(KnownHeaders.Accept, "Content");
                 request.AddParameter(owner, ParameterType.GetOrPost);
                 
@@ -93,9 +91,7 @@ namespace NotaFiscal.HttpClients
                         success = false
                     };
                 }
-               
-              
-            }
+             }
             catch (Exception ex)
             {
                 throw new Exception("Error parameter null or Not Unauthorization", ex);
@@ -105,12 +101,15 @@ namespace NotaFiscal.HttpClients
         public async Task<Data> PutNotaSharp(Data options)
             {
 
-            var request = new RestRequest("aaa29381-fb16-4700-8f75-af6fe0cdeb85", Method.Put)
+            var request = new RestRequest($"http://servluc01.ddns.com.br/NFeModelo2122Diginota/v1/Invoice", Method.Put)
             {
                 RootElement = "options"
             }
-                .AddHeader(KnownHeaders.Authorization, "token")
+                .AddHeader(KnownHeaders.Authorization, token)
                 .AddHeader("Content-Type", "application/x-www-form-urlencoded")
+                 .AddHeader("Content-Type", "application/json")
+                .AddHeader(KnownHeaders.Accept, "Content")
+                .AddParameter("application/json", ParameterType.RequestBody)
                 .AddParameter("Owner", options.owner)
                 .AddParameter("numeroNota", options.numeroNF)
                 .AddParameter("Serie", options.serie)
@@ -139,12 +138,12 @@ namespace NotaFiscal.HttpClients
                 .AddParameter("cancelado", options.cancelado)
                 .AddParameter("geraPDF", options.geraPDF)
                 .AddParameter("linkPDF", options.linkPDF);
-            if (options.owner != null)
+            if (options.numeroNF > 0)
             {
-                request.AddParameter("id", options.owner);
+                request.AddParameter("numeroNF", options.numeroNF);
             }
-            var response = await _client.ExecutePutAsync<root>(request);
-            return response.Data.data;
+            var response = await _client.PutAsync<root>(request);
+            return response.data;
         }
        
 

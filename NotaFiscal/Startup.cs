@@ -25,7 +25,7 @@ namespace NotaFiscal
 
             services.AddSingleton(
 
-              r => new NotaApiClient(new RestClient("http://servluc01.ddns.com.br/NFeModelo2122Diginota/v1/Invoice/"))
+              r => new NotaApiClient(new RestClient(""))
           );
             services.AddControllersWithViews();
         }
@@ -54,7 +54,7 @@ namespace NotaFiscal
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
                 endpoints.MapControllerRoute(name: "Nota",
-                pattern: "{controller=Nota}/{action=Detalhes}/{id?}");
+                pattern: "{controller=Nota}/{action=Index}/{id?}");
 
             });
         }

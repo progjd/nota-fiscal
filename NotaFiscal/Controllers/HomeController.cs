@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using NotaFiscal.HttpClients;
+using NotaFiscal.Models;
 using System.Threading.Tasks;
 
 namespace NotaFiscal.Controllers
@@ -19,31 +20,12 @@ namespace NotaFiscal.Controllers
         public IActionResult Index()
         {
 
-            return View();
+            return View(new Data());
           //return RedirectToAction("Detalhes", "Nota");
         }
-
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Index(string owner)
-        {
-          
-            var model = await _notaapi.postNotas(owner);
-
-            if (model == null)
-            {
-                return NotFound();
-            }
-  
-                return View(model.data);
-         }
-       
-
         public IActionResult Privacy()
         {
             return View();
         }
-     
-
     }
 }

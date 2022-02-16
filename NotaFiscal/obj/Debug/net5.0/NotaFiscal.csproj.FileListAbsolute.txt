@@ -221,7 +221,6 @@ C:\Users\João\source\repos\nota-fiscal\NotaFiscal\obj\Debug\net5.0\NotaFiscal.T
 C:\Users\João\source\repos\nota-fiscal\NotaFiscal\obj\Debug\net5.0\NotaFiscal.RazorCoreGenerate.cache
 C:\Users\João\source\repos\nota-fiscal\NotaFiscal\obj\Debug\net5.0\Razor\Views\Home\Index.cshtml.g.cs
 C:\Users\João\source\repos\nota-fiscal\NotaFiscal\obj\Debug\net5.0\Razor\Views\Home\Privacy.cshtml.g.cs
-C:\Users\João\source\repos\nota-fiscal\NotaFiscal\obj\Debug\net5.0\Razor\Views\Nota\Detalhes.cshtml.g.cs
 C:\Users\João\source\repos\nota-fiscal\NotaFiscal\obj\Debug\net5.0\Razor\Views\Shared\_Layout.cshtml.g.cs
 C:\Users\João\source\repos\nota-fiscal\NotaFiscal\obj\Debug\net5.0\Razor\Views\Shared\_ValidationScriptsPartial.cshtml.g.cs
 C:\Users\João\source\repos\nota-fiscal\NotaFiscal\obj\Debug\net5.0\Razor\Views\_ViewImports.cshtml.g.cs
@@ -234,4 +233,4 @@ C:\Users\João\source\repos\nota-fiscal\NotaFiscal\obj\Debug\net5.0\NotaFiscal.d
 C:\Users\João\source\repos\nota-fiscal\NotaFiscal\obj\Debug\net5.0\ref\NotaFiscal.dll
 C:\Users\João\source\repos\nota-fiscal\NotaFiscal\obj\Debug\net5.0\NotaFiscal.pdb
 C:\Users\João\source\repos\nota-fiscal\NotaFiscal\obj\Debug\net5.0\NotaFiscal.genruntimeconfig.cache
-C:\Users\João\source\repos\nota-fiscal\NotaFiscal\obj\Debug\net5.0\Razor\Views\Nota\EditModel.cshtml.g.cs
+C:\Users\João\source\repos\nota-fiscal\NotaFiscal\obj\Debug\net5.0\Razor\Views\Nota\Index.cshtml.g.cs
