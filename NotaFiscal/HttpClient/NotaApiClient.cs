@@ -18,10 +18,10 @@ namespace NotaFiscal.HttpClients
             _client = client;
         }
 
-        string token = "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6Ik9taWUgIHRlc3RlIChUUklBTCkiLCJQSUQiOiIzY2ZlZTRkNy03NzM3LTRhNzQtYTRmNy05NGUwNjBhOTRmNjciLCJSb2xlIjoiQ3VzdG9tZXIiLCJuYmYiOjE2NDIwOTYxODMsImV4cCI6MTY3MzYzMjE4MywiaWF0IjoxNjQyMDk2MTgzLCJpc3MiOiIxTm92by5jb20uYnIiLCJhdWQiOiJzdXJmLm1heGRhdGFjZW50ZXIuY29tLmJyIn0.T-uy3Sumtue2x_LfL6RJ3FxxI9uXLpfrZXLpEmu5pq8";
+        string token = "1234";
         public async Task<root> GetNotas(string guid)
         {
-            var options = new RestClientOptions("http://servluc01.ddns.com.br/NFeModelo2122Diginota/v1/Invoice/")
+            var options = new RestClientOptions("")
             {
                 ThrowOnAnyError = true,
                 Timeout = 1000
@@ -60,7 +60,7 @@ namespace NotaFiscal.HttpClients
 
         public async Task<root> postNotas(string owner)
         {
-            var options = new RestClientOptions($"http://servluc01.ddns.com.br/NFeModelo2122Diginota/v1/Invoice/{owner}")
+            var options = new RestClientOptions($"")
             {
                 ThrowOnAnyError = true,
                 Timeout = 1000
@@ -101,7 +101,7 @@ namespace NotaFiscal.HttpClients
         public async Task<Data> PutNotaSharp(Data options)
             {
 
-            var request = new RestRequest($"http://servluc01.ddns.com.br/NFeModelo2122Diginota/v1/Invoice", Method.Put)
+            var request = new RestRequest($"", Method.Put)
             {
                 RootElement = "options"
             }
